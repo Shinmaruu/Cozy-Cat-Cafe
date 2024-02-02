@@ -1,37 +1,44 @@
-using Plugins.CloudCanards.Inspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CozyCatCafe.Scripts
 {
-	public class StartMenu : MonoBehaviour
+    public class StartMenu : MonoBehaviour
 	{
-		[ScenePicker]
-		public string PlayScene;
+		
 		public SaveSystem Save;
 
 		public Button QuitButton;
 
+		public Button gotoTutorial;
+
+		public TutorialMenu tutorialMenu;
+
+
 		private void Awake()
 		{
+
+			gotoTutorial.onClick.AddListener(() => tutorialMenu.Confirm());
 #if UNITY_WEBGL
 			QuitButton.interactable = false;
 #endif
 		}
 
+
 		public void NewGamePressed()
 		{
+			tutorialMenu.tutorialPopUp.SetActive(true);
 			SoundMaster.Play(SoundMaster.Type.Menu);
 			Save.Reset();
-			SceneManager.LoadScene(PlayScene);
+			
 		}
 
 		public void ContinuePressed()
 		{
 			SoundMaster.Play(SoundMaster.Type.Menu);
 			Save.Load();
-			SceneManager.LoadScene(PlayScene);
+			SceneManager.LoadScene(1);
 		}
 
 		public void QuitPressed()
