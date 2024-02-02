@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class FinishedWithTutorial : MonoBehaviour
 {
+    //This code is meant to just allow the Player to finish the tutorial and move onto the actual game
+
     public Button goToGame;
     private void Awake()
     {

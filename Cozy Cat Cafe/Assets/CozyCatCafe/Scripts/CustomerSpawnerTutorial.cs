@@ -7,6 +7,7 @@ namespace CozyCatCafe.Scripts
 {
 	public class CustomerSpawnerTutorial : MonoBehaviour
 	{
+		//copy of the CustomerSpawner class, meant to be temporary
 		private static int _randomBase;
 		private static int _spawnNo;
 

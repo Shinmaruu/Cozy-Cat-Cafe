@@ -18,7 +18,7 @@ namespace CozyCatCafe.Scripts
 
 		private void Awake()
 		{
-
+			//use a listener to look for input to loading the tutorial
 			gotoTutorial.onClick.AddListener(() => tutorialMenu.Confirm());
 #if UNITY_WEBGL
 			QuitButton.interactable = false;
@@ -28,6 +28,7 @@ namespace CozyCatCafe.Scripts
 
 		public void NewGamePressed()
 		{
+			//turn on the popup
 			tutorialMenu.tutorialPopUp.SetActive(true);
 			SoundMaster.Play(SoundMaster.Type.Menu);
 			Save.Reset();
